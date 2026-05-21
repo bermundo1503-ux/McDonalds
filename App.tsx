@@ -1,44 +1,60 @@
-import {
-  View, Text, StyleSheet, Image, TouchableOpacity, SafeAreaView, StatusBar
-} from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 
-import {MaterialCommunityIcons, Feather} from '@expo/vector-icons';
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <View>
-        <View>
-          <Image />
-          <Text>McDonald's</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image
+            source={require('./images/logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <Text style={styles.brandName}>McDonald's</Text>
         </View>
         <View>
-          <Text>McDonald's</Text>
-          <Text>Escolha como prefere aproveitar seu lanche. Estamos aqui para oferecer praticidade e sabor em cada detalhe.</Text>
+          <Text style={styles.title}>Seja Bem-vindo!</Text>
+          <Text style={styles.subtitle}>Escolha como prefere aproveitar sua refeição. estamos aqui para oferecer praticidade e sabor em cada detalhe
+          </Text>
         </View>
-            <View>
-              <TouchableOpacity>
-              <View>
-                <MaterialCommunityIcons/>
-              </View>
-              <View>
-              <Text>Para comer aqui!</Text>
+        <View style={styles.cardsRow}>
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.85}
+            onPress={() => { }}
+          >
+            <View style={styles.iconCircles}>
+              <MaterialCommunityIcons
+                name="hamburger"
+                size={36}
+                color="#00000000"
+              />
             </View>
-             <TouchableOpacity>
-              </TouchableOpacity>
-              <View>
-                <Feather name="shopping-bag" />
-              </View>
-              <View>
-              <Text>Para levar!</Text>
+            <View style={styles.cardLabelPill}>
+              <Text style={styles.cardLabel}>Para comer aqui!</Text>
             </View>
-              </TouchableOpacity>
+          </TouchableOpacity>
+          <TouchableOpacity 
+          style={styles.card}
+          activeOpacity={0.85}
+          onPress={() => { }}
+          >
+            <View style={styles.iconCircles}>
+              <Feather name="shopping-bag" size={34} color="#00000000" />
             </View>
-          </View>
-        </SafeAreaView>
+            <View style={styles.cardLabelPill}>
+              <Text style={styles.cardLabel}>Para levar</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
+
 const styles = StyleSheet.create({
   safeArea: {
 
@@ -58,7 +74,10 @@ const styles = StyleSheet.create({
   welcomeSection: {
 
   },
-  Subtitle: {
+  title: {
+
+  },
+  subtitle: {
 
   },
   cardsRow: {
@@ -67,13 +86,13 @@ const styles = StyleSheet.create({
   card: {
 
   },
-  iconCircle: {
+  iconCircles: {
 
   },
-  CardLabelPill: {
+  cardLabelPill: {
 
   },
   cardLabel: {
 
-  },
+  }
 })
